@@ -466,7 +466,11 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         } else {
             mAmPmTextView.setVisibility(View.VISIBLE);
             mAmPmTextViewEnd.setVisibility(View.VISIBLE);
-            updateAmPmDisplay(mInitialHourOfDay < 12 ? AM : PM);
+            if (from) {
+                updateAmPmDisplay(mInitialHourOfDay < 12 ? AM : PM);
+            } else {
+                updateAmPmDisplay(mInitialHourOfDayEnd < 12 ? AM : PM);
+            }
             mAmPmHitspace.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
